@@ -16,9 +16,11 @@
   <tr>
     <td><%= address_book.imie %></td>
     <td><%= address_book.nazwisko %></td>
-    <td><%= address_book.email %></td>
-    <td><%= address_book.www %></td>
+    <td><a href='mailto:'<%= address_book.email %>'><%= address_book.email %></a></td>
+    <td><a href='<%= address_book.www %>'><%= address_book.www %></a></td>
     <td><%= address_book.adres %></td>
+    <td><%= gravatar_image_tag(address_book.email.gsub('spam',
+    'mdeering'), :alt => address_book.imie) %>
     <td><%= link_to 'Show', address_book %></td>
     <td><%= link_to 'Edit', edit_address_book_path(address_book) %></td>
     <td><%= link_to 'Destroy', address_book, :confirm => 'Are you sure?', :method => :delete %></td>

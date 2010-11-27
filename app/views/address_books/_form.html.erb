@@ -1,37 +1,58 @@
-<%= form_for(@address_book) do |f| %>
-  <% if @address_book.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@address_book.errors.count, "error") %> prohibited this address_book from being saved:</h2>
-
-      <ul>
-      <% @address_book.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :imie %><br />
-    <%= f.text_field :imie %>
+<div id="wrapper">
+  <div id="steps">
+    <%= form_for @address_book, :html => { :id => "formElem" } do |f| %>
+    
+    <fieldset class="step">
+      <legend>Krok 1.</legend>
+      <p>
+        <%= f.label :imie %><br />
+        <%= f.text_field :imie %>
+      </p>
+      <p>
+        <%= f.label :nazwisko %><br />
+        <%= f.text_field :nazwisko %>
+      </p>
+    </fieldset>
+    <fieldset class="step">
+      <legend>Krok 2.</legend>
+      <p>
+        <%= f.label :email %><br />
+        <%= f.text_field :email %>
+      </p>
+      <p>
+        <%= f.label :www %><br />
+        <%= f.text_field :www %>
+      </p>
+    </fieldset>
+    <fieldset class="step">
+      <legend>Krok 3.</legend>
+      <p>
+        <%= f.label :adres %><br />
+        <%= f.text_field :adres %>
+      </p>
+    </fieldset>
+    <fieldset class="step">
+      <legend>Wyslij</legend>
+      <p>
+        <%= f.submit %>
+      </p>
+    </fieldset>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :nazwisko %><br />
-    <%= f.text_field :nazwisko %>
+  <div id="navigation" style="display:none;">
+    <ul>
+      <li class="selected">
+	<a href="#">Krok 1.</a>
+      </li>
+      <li>
+	<a href="#">Krok 2.</a>
+      </li>
+      <li>
+	<a href="#">Krok 3.</a>
+      </li>
+      <li>
+	<a href="#">Wyslij</a>
+      </li>
+    </ul>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :www %><br />
-    <%= f.text_field :www %>
-  </div>
-  <div class="field">
-    <%= f.label :adres %><br />
-    <%= f.text_area :adres %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
