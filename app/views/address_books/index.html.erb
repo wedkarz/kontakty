@@ -1,0 +1,31 @@
+<h1>Listing address_books</h1>
+
+<table>
+  <tr>
+    <th>Imie</th>
+    <th>Nazwisko</th>
+    <th>Email</th>
+    <th>Www</th>
+    <th>Adres</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @address_books.each do |address_book| %>
+  <tr>
+    <td><%= address_book.imie %></td>
+    <td><%= address_book.nazwisko %></td>
+    <td><%= address_book.email %></td>
+    <td><%= address_book.www %></td>
+    <td><%= address_book.adres %></td>
+    <td><%= link_to 'Show', address_book %></td>
+    <td><%= link_to 'Edit', edit_address_book_path(address_book) %></td>
+    <td><%= link_to 'Destroy', address_book, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Address book', new_address_book_path %>
